@@ -55,8 +55,8 @@ if ask == "Y":
 else:
   os.environ['OffStt'] = "False"
   
-os.system("sudo systemctl daemon-reload -y")
-os.system("sudo systemctl enable Jarvis.service -y")
+os.system("sudo systemctl daemon-reload ")
+os.system("sudo systemctl enable Jarvis.service ")
 os.system("sudo apt install python3-dev portaudio19-dev python3-pyaudio apt -y")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx?download=true")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx.json?download=true.json")
