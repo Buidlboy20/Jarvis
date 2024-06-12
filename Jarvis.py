@@ -39,7 +39,7 @@ def recognize_speech():
 def executecommand(intent):
     intent = intent['tag']
     if intent == 'addonlist':
-        say("Listing available addons" + addons.listaddons()
+        say("Listing available addons" + addons.listaddons())
     
 
 
