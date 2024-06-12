@@ -6,6 +6,7 @@ This is my first public project. I have been working on this locally for ~5 mont
 
 I have built this on a Linux machine, 
 and I am not sure that it will work on Windows.
+Microphone and Speaker required.
 
 ## Installation
 
