@@ -48,7 +48,7 @@ ExecStart=/usr/bin/python3 ~/Jarvis/Jarvis.py
 [Install]
 WantedBy=multi-user.target
 """)
-  
+os.system("sudo apt install python3-dev portaudio19-dev python3-pyaudio")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx?download=true")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx.json?download=true.json")
 os.system("python3 -m pip install --upgrade pip")
