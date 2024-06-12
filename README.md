@@ -9,8 +9,8 @@ This is my first public project. I have been working on this locally for ~5 mont
 ### I wouldn't use this unless you know what you are doing!
 I hope that if an error occurs, it won't affect anything important. :|
 
-I have built this on a Linux machine, 
-and I am not sure that it will work on Windows.
+I have built this on a Linux machine, and it will not work out of the box.
+It may work on Windows Subsytem for Linux though.
 Microphone and Speaker required.
 
 I use Python3.10, and I have not tested it on other versions.
