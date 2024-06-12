@@ -50,7 +50,7 @@ ExecStart=/usr/bin/python3 ~/Jarvis/Jarvis.py
 WantedBy=multi-user.target
 """)
 ask = input("Would you like you use the offline speech to text engine? Y/N ")
-if ask == "Y"
+if ask == "Y":
   os.system("pip install faster-whisper")
   os.environ['OffStt'] = True
 else:
