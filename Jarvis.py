@@ -4,6 +4,7 @@ import speech_recognition as sr
 import random
 import detectwakeword
 import nltk
+import addons
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
