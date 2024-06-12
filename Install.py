@@ -18,8 +18,8 @@ if sys.prefix != sys.base_prefix:
       os.system("sudo apt-get install python3-venv")
       os.system("cd")
       os.system("python3 -m venv Jarvenv")
-      os.system("source Jarvenv/bin/activate")
-      os.environ['JARVISVENVPATH'] = '~/Jarvenv/bin/activate'
+      os.system("source ~/Jarvis/Jarvenv/bin/activate")
+      os.environ['JARVISVENVPATH'] = '~/Jarvis/Jarvenv/bin/activate'
 else:
   print("No venv detected.")
   ask = input("A: Would you like to create a venv, or B: specify a venv activation path? (E.G. venv/bin/activate) A/B")
