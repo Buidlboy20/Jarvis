@@ -2,9 +2,9 @@
 import os
 import speech_recognition as sr
 import random
-import detectwakeword
+import detectwakeword #detectwakeword.py
 import nltk
-import addons
+import addons #addons.py
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 def say(text):
