@@ -32,6 +32,12 @@
             "responses": [""]
         },
         {
+            "tag": "addonlist",
+            "patterns": ["What addons can I add", "List the addons please", "List Addons", "What addons are there"],
+            "responses": ""
+        },
+        {
+            
             "tag": "wikipedia",
             "patterns": ["Search on wikipedia", "Wikipedia", "Wiki", "Search on wiki"],
             "responses": [""]
