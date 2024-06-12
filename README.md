@@ -4,6 +4,9 @@ This is my first public project. I have been working on this locally for ~5 mont
 
 ## Disclaimer
 
+### I wouldn't use this unless you know what you are doing!
+I hope that if an error occurs, it won't affect anything important. :|
+
 I have built this on a Linux machine, 
 and I am not sure that it will work on Windows.
 Microphone and Speaker required.
