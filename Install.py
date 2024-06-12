@@ -39,7 +39,7 @@ else:
 with open("/etc/systemd/system/Jarvis.service", "w") as file:
   file.write("""
 [Unit]
-Description=My test service
+Description=Jarvis_Service
 After=multi-user.target
 [Service]
 Type=simple
@@ -48,6 +48,8 @@ ExecStart=/usr/bin/python3 ~/Jarvis/Jarvis.py
 [Install]
 WantedBy=multi-user.target
 """)
+os.system("sudo systemctl daemon-reload")
+os.system("sudo systemctl enable Jarvis.service
 os.system("sudo apt install python3-dev portaudio19-dev python3-pyaudio")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx?download=true")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx.json?download=true.json")
