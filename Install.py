@@ -55,3 +55,4 @@ os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx.json?download=true.json")
 os.system("python3 -m pip install --upgrade pip")
 os.system("python3 -m pip install speechRecognition nltk playsound gTTS weather2 wikipedia google transformers torch simpleaudio pygame pydub flask pyalsaaudio pyaudio")
+os.environ['JARVISVENVPATH'] = ""
