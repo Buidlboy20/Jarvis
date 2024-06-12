@@ -7,6 +7,12 @@ import nltk
 import addons #addons.py
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+def generate_response(intent):
+    out = random.choice(intent['responses'])
+    if (not out == None):
+        return(out) 
+    else:
+        return("NONE")
 def say(text):
     os.system(f"echo '{text}' | \
   piper --model en_US-lessac-medium.onnx --output-raw | \
