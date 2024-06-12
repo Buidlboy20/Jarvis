@@ -14,6 +14,7 @@ and I am not sure that it will work on Windows.
 Microphone and Speaker required.
 
 I use Python3.10, and I have not tested it on other versions.
+
 ## Installation
 
 Clone the repo.
