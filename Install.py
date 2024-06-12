@@ -28,8 +28,8 @@ else:
     print("Installing python3-venv dependancy (Password may be required)")
     os.system("sudo apt-get install python3-venv")
     os.system("cd")
-    os.system("python3 -m venv Jarvenv")
-    os.system("source Jarvenv/bin/activate")
+    os.system("python3 -m venv ~/Jarvis/Jarvenv")
+    os.system("source ~/Jarvis/Jarvenv/bin/activate")
     os.environ['JARVISVENVPATH'] = '~/Jarvenv/bin/activate'
 #Install as a service.
   else:
@@ -55,10 +55,10 @@ if ask == "Y":
 else:
   os.environ['OffStt'] = "False"
   
-os.system("sudo systemctl daemon-reload")
-os.system("sudo systemctl enable Jarvis.service")
-os.system("sudo apt install python3-dev portaudio19-dev python3-pyaudio")
+os.system("sudo systemctl daemon-reload -y")
+os.system("sudo systemctl enable Jarvis.service -y")
+os.system("sudo apt install python3-dev portaudio19-dev python3-pyaudio apt -y")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx?download=true")
 os.system("wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium.onnx.json?download=true.json")
-os.system("python3 -m pip install --upgrade pip")
-os.system("python3 -m pip install speechRecognition nltk playsound gTTS weather2 wikipedia google transformers torch simpleaudio pygame pydub flask pyalsaaudio pyaudio")
+os.system("pip install --upgrade pip")
+os.system("pip install speechRecognition nltk playsound gTTS weather2 wikipedia google transformers torch simpleaudio pygame pydub flask pyalsaaudio pyaudio")
