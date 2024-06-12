@@ -1,7 +1,7 @@
 # Jarvis 
 
 Yep, this is Jarvis from the MCU.
-I know that there are other projects out there that are MUCH better, but I wanted to create one from scratch.
+I know that there are other projects out there that are MUCH better, but I wanted to create my one from scratch.
 This is my first public project. I have been working on this locally for ~5 months, and decided to rebuild it and make it better on github. 
 
 ## Disclaimer
