@@ -6,7 +6,8 @@ This is my first public project. I have been working on this locally for ~5 mont
 
 ## Disclaimer
 
-### I wouldn't use this unless you know what you are doing!
+### Please don't use it yet, unless you know what you are doing!
+
 I hope that if an error occurs, it won't affect anything important. :|
 
 I have built this on a Linux machine, and it will not work out of the box.
