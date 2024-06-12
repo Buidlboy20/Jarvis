@@ -18,7 +18,7 @@ os.system("pip install gitpython")
 import git
 def gitclone(url):
     return git.Repo.clone_from(url)
-git.Repo.clone_from(
+
 ask = input("A: Install from official repo. B: Install from other repo. (May not be compatible) A/B ")
 if ask == "A":
     for i in addons:
