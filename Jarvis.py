@@ -33,7 +33,11 @@ def recognize_speech():
         print("Sorry, my speech recognition service is unavailable.")
         output = ""
         return None
-
+def executecommand(intent):
+    intent = intent['tag']
+    if intent == 'addonlist':
+        say("Listing available addons" + addons.listaddons()
+    
 
 
 
