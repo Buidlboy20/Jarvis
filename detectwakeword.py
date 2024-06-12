@@ -24,8 +24,6 @@ def capture_single_audio_frame():
     try:
         # Read a single audio frame
         data = stream.read(CHUNK)
-        # Process the audio data (e.g., save to a file, analyze, etc.)
-        # You can replace this with your desired logic
         return data
     finally:
         # Clean up
