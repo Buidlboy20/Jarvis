@@ -1,5 +1,6 @@
 import os
 import sys
+import offstt
 print("Updating APT")
 os.system("sudo apt update")
 if sys.prefix != sys.base_prefix:
@@ -48,6 +49,11 @@ ExecStart=/usr/bin/python3 ~/Jarvis/Jarvis.py
 [Install]
 WantedBy=multi-user.target
 """)
+ask = input("Would you like you use the offline speech to text engine? Y/N ")
+if ask == "Y"
+  os.system("pip install faster-whisper")
+  os.environ['OffStt'] = True
+  
 os.system("sudo systemctl daemon-reload")
 os.system("sudo systemctl enable Jarvis.service")
 os.system("sudo apt install python3-dev portaudio19-dev python3-pyaudio")
