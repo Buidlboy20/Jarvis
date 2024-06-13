@@ -1,5 +1,6 @@
 import os
 import sys
+os.system("source")
 print("Updating APT")
 os.system("sudo apt update")
 if sys.prefix != sys.base_prefix:
