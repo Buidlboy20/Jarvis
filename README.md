@@ -16,7 +16,14 @@ Microphone and Speaker required.
 
 I use Python3.10, and I have not tested it on other versions.
 
+python3-venv package needs to be installed!
+
 ## Installation
+Create a venv:
+
+``` sh
+python3 -m venv Jarvenv
+```
 
 Clone the repo.
 
