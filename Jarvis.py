@@ -5,8 +5,12 @@ import random
 import detectwakeword #detectwakeword.py
 import nltk
 import addons #addons.py
+import json
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+with open('brain.json') as file:
+    intents = json.load(file)
+
 def generate_response(intent):
     out = random.choice(intent['responses'])
     if (not out == None):
