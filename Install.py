@@ -6,18 +6,7 @@ os.system("sudo apt update")
 if not sys.prefix != sys.base_prefix:
   print("Warning! No venv detected.")
   exit()
-with open("/etc/systemd/system/Jarvis.service", "w") as file:
-  file.write("""
-[Unit]
-Description=Jarvis_Service
-After=multi-user.target
-[Service]
-Type=simple
-Restart=always
-ExecStart=/usr/bin/python3 ~/Jarvis/Jarvis.py
-[Install]
-WantedBy=multi-user.target
-""")
+
 ask = input("Would you like you use the offline speech to text engine? Y/N ")
 if ask == "Y":
   os.system("pip install faster-whisper")
