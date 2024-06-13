@@ -38,7 +38,7 @@ python3 Install.py
 ```
 This will run the setup.
 
-If all goes correctly, Jarvis should boot at start.
+If all goes correctly, Jarvis should boot at start. (Or you can manually start it using python3 Jarvis.py)
 
 Now reboot you system using:
 
