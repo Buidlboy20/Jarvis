@@ -22,7 +22,7 @@ python3-venv package needs to be installed!
 Create a venv:
 
 ``` sh
-python3 -m venv Jarvenv
+python3 -m venv Jarvis
 ```
 
 Clone the repo.
