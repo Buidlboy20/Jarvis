@@ -24,7 +24,11 @@ Create a venv:
 ``` sh
 python3 -m venv Jarvis
 ```
+Activate the venv:
 
+``` sh
+source Jarvis/bin/activate
+```
 Clone the repo.
 
 cd into the repo.
