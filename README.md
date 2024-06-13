@@ -38,6 +38,22 @@ python3 Install.py
 ```
 This will run the setup.
 
+## Start at Boot setup:
+``` sh
+sudo nano /etc/systemd/system/Jarvis.service
+```
+Put this in it:
+```
+[Unit]
+Description=Jarvis_Service
+After=multi-user.target
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 ~/Jarvis/Jarvis.py
+[Install]
+WantedBy=multi-user.target
+```
 If all goes correctly, Jarvis should boot at start. (Or you can manually start it using python3 Jarvis.py)
 
 Now reboot you system using:
