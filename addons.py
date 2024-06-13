@@ -22,7 +22,10 @@ def gitclone(url):
 ask = input("A: Install from official repo. B: Install from other repo. (May not be compatible) A/B ")
 if ask == "A":
     for i in addons:
-        print(\n + i + ": " + addons[i])
-        print(\n + " Please choose a number:")
+        print("\n" + i + ": " + addons[i])
+        print("\n" + " Please choose a number:")
         ask = input("")
+        addon2install = addons[ask]
+        os.system("git clone " + addon2install + " addons/")
+        os.system("python3 addons/setup.py")
         
