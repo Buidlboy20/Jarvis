@@ -10,17 +10,21 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 with open('brain.json') as file:
     intents = json.load(file)
-
+server = os.environ['Server']
 def generate_response(intent):
     out = random.choice(intent['responses'])
     if (not out == None):
         return(out) 
-    else:
+    else: 
         return("NONE")
 def say(text):
-    os.system(f"echo '{text}' | \
-  piper --model en_US-lessac-medium.onnx --output-raw | \
-  aplay -r 22050 -f S16_LE -t raw -")
+    if not server:
+        os.system(f"echo '{text}' | \
+    piper --model en_US-lessac-medium.onnx --output-raw | \
+    aplay -r 22050 -f S16_LE -t raw -")
+    else:
+        os.system(f"echo '{text}' | \
+    piper --model en_US-lessac-medium.onnx --output_file output.wav")
 global output
 def recognize_speech():
     recognizer = sr.Recognizer()
@@ -34,7 +38,16 @@ def recognize_speech():
 
         
         print("Recognizing...")
-        text = recognizer.recognize_google(audio)
+        if os.environ['OffStt'] == "True":
+            from faster_whisper import WhisperModel
+            model_size = "large-v3"
+            model = WhisperModel(model_size, device="cuda", compute_type="float16")
+            segments, info = model.transcribe("audio.mp3")
+            for segment in segments:
+                text = segment.text
+                return segment.text
+        else:
+            text = recognizer.recognize_google(audio)
         print("You said:", text)
         output = text
         return text
@@ -49,7 +62,7 @@ def recognize_speech():
 def executecommand(intent):
     intent = intent['tag']
     if intent == 'addonlist':
-        say("Listing available addons" + addons.listaddons())
+        say("Listing available addons" + addons.listaddons(), server)
     
 
 
@@ -96,7 +109,7 @@ def start():
     output = detectwakeword.detect()
     if output:
         
-        handle_input(recognize_speech(),)
+        handle_input(recognize_speech(server),)
     else:
         output = ""
 
