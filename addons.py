@@ -4,28 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import json
 import xml
-def listaddons():
-    return [
-        "TpLink-kasa", #1
-        "spotify", #2
-        "Roku" #3
-    ]
-intents = [
-        {
-        "tag": "TpLink-kasa",
-        "patterns": [ "Turn off the light.", "Turn off the light", "Turn on my switch", "Turn off my switch"
-        ]
-        },
-        {
-        "tag": "Volume",
-        "patterns": [
-            "",
-            "",
 
-        ]
-        }
-
-]
 def match_intent(text):
     tokens = word_tokenize(text)
     tokens = [word.lower() for word in tokens if word.isalpha()]
