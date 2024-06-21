@@ -43,16 +43,6 @@ def intentcheck(output):
     for i in os.environ['EnAddons']:
         match_intent(output)
 def installaddon(addonnum):
-    addon = listaddons[addonnum]
-    if addon == "TpLink-kasa":
-        os.system("pip install python-kasa")
-        enableaddon(addon)
-    elif addon == "Roku":
-        os.system("pip install roku")
-        from roku import Roku
-        roku = Roku()
-        for i in roku.discovery():
-        
 
             import requests
             import xmltodict
