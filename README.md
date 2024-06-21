@@ -10,7 +10,7 @@ This is my first public project. I have been working on this locally for ~5 mont
 
 I hope that if an error occurs, it won't affect anything important. :|
 
-I have built this on a Linux machine, and it will not work out of the box.
+I have built this on a Linux machine, and it may not work out of the box.
 It may work on Windows Subsytem for Linux though.
 Microphone and Speaker required.
 
@@ -54,6 +54,11 @@ ExecStart=/usr/bin/python3 ~/Jarvis/Jarvis.py
 [Install]
 WantedBy=multi-user.target
 ```
+Ctrl+X and then Y 
+
+
+```systemd enable Jarvis```
+
 If all goes correctly, Jarvis should boot at start. (Or you can manually start it using python3 Jarvis.py)
 
 Now reboot you system using:
