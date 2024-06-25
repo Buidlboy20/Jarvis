@@ -6,11 +6,13 @@ import detectwakeword #detectwakeword.py
 import nltk
 import addons #addons.py
 import json
+import time
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 with open('brain.json') as file:
     intents = json.load(file)
-server = os.environ['Server']
+os.environ['SERVER'] = "False"
+server = os.environ['SERVER']
 def generate_response(intent):
     out = random.choice(intent['responses'])
     if (not out == None):
@@ -63,7 +65,11 @@ def executecommand(intent):
     intent = intent['tag']
     if intent == 'addonlist':
         say("Listing available addons" + addons.listaddons(), server)
-    
+    elif intent['tag'] == 'time':
+        t = time.strftime("%I:%M %p")
+        print(t)
+        say(f"the currert time is '{t}'", server)
+        print("Executing time command...")
 
 
 
