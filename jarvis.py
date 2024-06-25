@@ -7,6 +7,7 @@ import nltk
 import addons #addons.py
 import json
 import time
+import wikipedia
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 with open('brain.json') as file:
@@ -115,7 +116,7 @@ def start():
     output = detectwakeword.detect()
     if output:
         
-        handle_input(recognize_speech(server),)
+        handle_input(recognize_speech(server))
     else:
         output = ""
 
