@@ -1,37 +1,50 @@
-from flask import Flask, request, make_response, send_file
-from io import BytesIO
-import speech_recognition as sr
-app = Flask(__name__)
-source = sr.Microphone()
-recognizer = sr.Recognizer()
-def generate_wav_file(output_buffer, audio_data):
-    audio_data = recognizer.listen(source).get_raw_data()
-    output_buffer.write(audio_data)
+import socket
 
-@app.route('/upload', methods=['POST'])
-def upload_wav():
-    if 'file' not in request.files:
-        return "No file part", 400
+def receive_file(connection, file_path):
+    with open(file_path, 'wb') as f:
+        while True:
+            data = connection.recv(4096)
+            if not data:
+                break
+            f.write(data)
+    print(f"File received and saved as {file_path}")
 
-    file = request.files['file']
-    if file.filename == '':
-        return "No selected file", 400
+def send_file(connection, file_path):
+    with open(file_path, 'rb') as f:
+        while True:
+            data = f.read(4096)
+            if not data:
+                break
+            connection.sendall(data)
+    print(f"File {file_path} sent successfully")
 
-    audio_data = file.read() 
-    buffer = BytesIO()
-    generate_wav_file(buffer, audio_data)
+# Configuration
+HOST = '0.0.0.0'
+PORT = 5000
+RECEIVED_FILE_PATH = 'received_audio.wav'
+SEND_FILE_PATH = 'send_audio.wav'  # Path to the file you want to send back
 
-    response = make_response(buffer.getvalue())
-    response.headers['Content-Type'] = 'audio/wav'
-    response.headers['Content-Disposition'] = 'attachment; filename=sound.wav'
-    return response
+# Set up the server socket
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind((HOST, PORT))
+server_socket.listen(1)
+print(f"Server listening on {HOST}:{PORT}")
 
+while True:
+    conn, addr = server_socket.accept()
+    print(f"Connection from {addr}")
 
-path_to_file = "/path/to/your/other.wav"
+    # Receive a file from the client
+    receive_file(conn, RECEIVED_FILE_PATH)
 
-@app.route('/download', methods=['GET'])
-def download_wav():
-    return send_file(path_to_file, mimetype="audio/wav", as_attachment=True, attachment_filename="other.wav")
+    # Wait for the client to indicate it's ready to receive the output file
+    ready_message = "Ready to receive output file. Send 'GET_FILE' to request."
+    conn.sendall(ready_message.encode())
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    # Wait for the client to request the file
+    request = conn.recv(1024).decode()
+    if request == "GET_FILE":
+        # Send a file back to the client
+        send_file(conn, SEND_FILE_PATH)
+
+    conn.close()
