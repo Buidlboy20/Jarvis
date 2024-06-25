@@ -1,5 +1,7 @@
 [
   {
-    "Roku": "https://github.com/Buidlboy20/Jarvis-Roku"
+    "Roku": "https://github.com/Buidlboy20/Jarvis-Roku",
+
+    "Enabled_Addons": [""]
   }
 ]
