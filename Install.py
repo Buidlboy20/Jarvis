@@ -24,8 +24,6 @@ os.system("cp \"en_GB-northern_english_male-medium.onnx.json?download=true.json\
 os.system("rm \"en_GB-northern_english_male-medium.onnx.json?download=true.json\"")
 os.system("rm \"en_GB-northern_english_male-medium.onnx?download=true\"")
 os.system("python3 -m pip install --upgrade pip")
-os.system("python3 -m pip install xmltodict speechRecognition nltk playsound gTTS weather2 wikipedia google transformers torch simpleaudio pygame pydub flask pyalsaaudio pyaudio")
-os.environ['JARVISVENVPATH'] = ""
-os.system("python3 -m pip install --upgrade pip")
-os.system("python3 -m pip install speechRecognition nltk playsound gTTS weather2 wikipedia google transformers torch simpleaudio pygame pydub flask pyalsaaudio pyaudio faster_whisper")
+os.system("python3 -m pip install xmltodict speechRecognition nltk playsound gTTS weather2 wikipedia google transformers torch simpleaudio pygame pydub flask pyalsaaudio pyaudio faster_whisper")
+
 
