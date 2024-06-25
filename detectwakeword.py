@@ -32,7 +32,7 @@ def capture_single_audio_frame():
         p.terminate()
 
 # One-time download of all pre-trained models (or only select models)
-download_models("hey_jarvis_v0.1.tflite")
+download_models(["hey_jarvis_v0.1.tflite"])
 
 # Instantiate the wake word detection model
 model = Model(wakeword_models=["hey_jarvis_v0.1.tflite"])
