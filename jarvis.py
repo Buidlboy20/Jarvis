@@ -4,7 +4,6 @@ import speech_recognition as sr
 import random
 import detectwakeword #detectwakeword.py
 import nltk
-import addons #addons.py
 import json
 import time
 import wikipedia
@@ -64,9 +63,7 @@ def recognize_speech():
         return None
 def executecommand(intent):
     intent = intent['tag']
-    if intent == 'addonlist':
-        say("Listing available addons" + addons.listaddons(), server)
-    elif intent['tag'] == 'time':
+    if intent['tag'] == 'time':
         t = time.strftime("%I:%M %p")
         print(t)
         say(f"the currert time is '{t}'", server)
