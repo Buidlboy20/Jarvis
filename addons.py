@@ -14,7 +14,8 @@ def installaddon(addonnum):
     os.system("python3 addons/setup.py")
     with open("brain.json", 'w+') as jfile:
         existing_data = json.load(jfile)
-        with open(f"/addons/'{addon2install}'")
+        with open(f"/addons/'{addon2install}'"):
+            print("WIP")
 
         
 
