@@ -113,7 +113,7 @@ def start():
     output = detectwakeword.detect()
     if output:
         
-        handle_input(recognize_speech(server))
+        handle_input(recognize_speech())
     else:
         output = ""
 
