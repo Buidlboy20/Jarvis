@@ -48,6 +48,7 @@ def detect():
         print("WakeWord Detected")
         return True
     else:
+        print(output['hey_jarvis_v0.1.tflite'])
         print("No wakeword")
         return False
 def detectfromfile(file):
