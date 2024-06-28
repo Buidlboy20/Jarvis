@@ -34,23 +34,25 @@ def recognize_speech():
     microphone = sr.Microphone()
     global output
     try:
-        with microphone as source:
-            print("Listening...")
-            recognizer.adjust_for_ambient_noise(source)
-            audio = recognizer.listen(source, timeout=6)
-
-        
-        print("Recognizing...")
         if config['OffStt'] == "True":
-            from faster_whisper import WhisperModel
-            model_size = "large-v3"
-            model = WhisperModel(model_size, device="cpu", compute_type="int8")
-            segments, info = model.transcribe("audio.mp3")
-            for segment in segments:
-                text = segment.text
-                return segment.text
+            with microphone as source:
+                print("Listening...")
+                recognizer.adjust_for_ambient_noise(source)
+                audio = recognizer.listen(source, timeout=6)
+                from faster_whisper import WhisperModel
+                print("Recognizing")
+                model_size = "large-v3"
+                model = WhisperModel(model_size, device="cpu", compute_type="int8")
+                segments = model.transcribe(audio)
+                for segment in segments:
+                    text = segment.text
+                    return segment.text
         else:
-            text = recognizer.recognize_google(audio)
+            with microphone as source:
+                print("Listening...")
+                recognizer.adjust_for_ambient_noise(source)
+                audio = recognizer.listen(source, timeout=6)
+                text = recognizer.recognize_google(audio)
         print("You said:", text)
         output = text
         return text
