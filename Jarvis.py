@@ -9,7 +9,7 @@ import time
 import wikipedia
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-with open('config.json', 'w+') as file:
+with open('config.json', 'r') as file:
     config = json.load(file)
 with open('brain.json') as file:
     intents = json.load(file)
