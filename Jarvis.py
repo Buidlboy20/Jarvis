@@ -37,7 +37,7 @@ def recognize_speech():
         with microphone as source:
             print("Listening...")
             recognizer.adjust_for_ambient_noise(source)
-            audio = recognizer.listen(source)
+            audio = recognizer.listen(source, timeout=6)
 
         
         print("Recognizing...")
@@ -60,6 +60,10 @@ def recognize_speech():
         return None
     except sr.RequestError:
         print("Sorry, my speech recognition service is unavailable.")
+        output = ""
+        return None
+    except sr.WaitTimeoutError:
+        print("Timeout")
         output = ""
         return None
 def executecommand(intent):
