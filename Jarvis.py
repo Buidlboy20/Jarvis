@@ -44,7 +44,7 @@ def recognize_speech():
         if config['OffStt'] == "True":
             from faster_whisper import WhisperModel
             model_size = "large-v3"
-            model = WhisperModel(model_size, device="cuda", compute_type="float16")
+            model = WhisperModel(model_size, device="cpu", compute_type="int8")
             segments, info = model.transcribe("audio.mp3")
             for segment in segments:
                 text = segment.text
