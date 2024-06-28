@@ -9,10 +9,11 @@ import time
 import wikipedia
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+with open('config.json', 'w+') as file:
+    config = json.load(file)
 with open('brain.json') as file:
     intents = json.load(file)
-os.environ['SERVER'] = "False"
-server = os.environ['SERVER']
+server = config['Server']
 def generate_response(intent):
     out = random.choice(intent['responses'])
     if (not out == None):
@@ -40,7 +41,7 @@ def recognize_speech():
 
         
         print("Recognizing...")
-        if os.environ['OffStt'] == "True":
+        if config['OffStt'] == "True":
             from faster_whisper import WhisperModel
             model_size = "large-v3"
             model = WhisperModel(model_size, device="cuda", compute_type="float16")
