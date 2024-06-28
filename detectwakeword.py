@@ -38,17 +38,17 @@ download_models(["hey_jarvis_v0.1.tflite"])
 model = Model(wakeword_models=["hey_jarvis_v0.1.tflite"])
 
 def detect():
-    while True:
-        frame = capture_single_audio_frame()
-        audio_array = np.frombuffer(frame, dtype=np.int16)
-        time.sleep(0.05)
-        output = model.predict(audio_array)
-        if output['hey_jarvis_v0.1.tflite'] >= 0.0005:
-            print("WakeWord Detected")
-            return True
-        else:
-            print("No wakeword")
-            return False
+
+    frame = capture_single_audio_frame()
+    audio_array = np.frombuffer(frame, dtype=np.int16)
+    time.sleep(0.05)
+    output = model.predict(audio_array)
+    if output['hey_jarvis_v0.1.tflite'] >= 0.0005:
+        print("WakeWord Detected")
+        return True
+    else:
+        print("No wakeword")
+        return False
 def detectfromfile(file):
     with open(file, 'rb') as file:
         audio_array = np.frombuffer(file, dtype=np.int16)
