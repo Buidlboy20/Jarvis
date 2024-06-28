@@ -8,7 +8,7 @@ from openwakeword.utils import download_models
 
 def capture_single_audio_frame():
     CHUNK = 1024
-    FORMAT = pyaudio.paInt16()
+    FORMAT = pyaudio.paInt16
     CHANNELS = 1
     RATE = 16000
 
