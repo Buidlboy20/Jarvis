@@ -17,7 +17,7 @@ with open('config.json', 'r') as file:
     config = json.load(file)
 with open('brain.json') as file:
     intents = json.load(file)
-server = config['Server']
+
 def generate_response(intent):
     out = random.choice(intent['responses'])
     if (not out == None):
@@ -25,7 +25,7 @@ def generate_response(intent):
     else: 
         return("NONE")
 def say(text):
-    if not server:
+    if not(config['Server'] == "True"):
         os.system(f"echo '{text}' | \
     piper --model en_US-lessac-medium.onnx --output_file output.wav")
         pygame.mixer.music.load('output.wav')
