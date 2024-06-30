@@ -30,6 +30,7 @@ def say(text):
     piper --model en_GB-northern_english-medium.onnx --output_file output.wav")
         pygame.mixer.music.load('output.wav')
         pygame.mixer.music.play()
+        os.remove("output.wav")
     else:
         print("Server Output")
         os.system(f"echo '{text}' | \
