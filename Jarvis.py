@@ -38,12 +38,12 @@ def recognize_speech():
             with microphone as source:
                 print("Listening...")
                 recognizer.adjust_for_ambient_noise(source)
-                audio = recognizer.listen(source, timeout=6)
+                audio = recognizer.listen(source, timeout=6).get_wav_data()
                 from faster_whisper import WhisperModel
                 print("Recognizing")
                 model_size = "large-v3"
                 model = WhisperModel(model_size, device="cpu", compute_type="int8")
-                segments = model.transcribe(audio)
+                segments = model.transcribe("audio.wav")
                 for segment in segments:
                     text = segment.text
                     return segment.text
