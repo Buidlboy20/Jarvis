@@ -7,6 +7,7 @@ import nltk
 import json
 import time
 import wikipedia
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 with open('config.json', 'r') as file:
