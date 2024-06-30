@@ -1,6 +1,7 @@
 #Jarvis V2
 import os
-from playsound import playsound
+import pygame
+pygame.mixer.init()
 import speech_recognition as sr
 import random
 import detectwakeword #detectwakeword.py
@@ -27,7 +28,8 @@ def say(text):
     if not server:
         os.system(f"echo '{text}' | \
     piper --model en_US-lessac-medium.onnx --output_file output.wav")
-        playsound('output.wav')
+        pygame.mixer.music.load('output.wav')
+        pygame.mixer.music.play()
     else:
         print("Server Output")
         os.system(f"echo '{text}' | \
