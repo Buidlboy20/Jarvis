@@ -126,7 +126,7 @@ def start():
     else:
         output = ""
 
-
+say("Startup complete. Your assistant is now ready.")
 while(1):
     try:
         start()
