@@ -50,7 +50,7 @@ def recognize_speech():
                 print("Recognizing")
                 model_size = "large-v3"
                 model = WhisperModel(model_size, device="cpu", compute_type="int8")
-                segments = model.transcribe("audio.wav")
+                segments = model.transcribe(audio)
                 for segment in segments:
                     text = segment.text
                     return segment.text
