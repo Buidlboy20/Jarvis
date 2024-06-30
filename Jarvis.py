@@ -126,7 +126,7 @@ def start():
     else:
         output = ""
 
-say("Startup complete. Your assistant is now ready.")
+say("The 20 meter pacer test is a multi lung stage capacity test that gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds, line up at the start. The running speed starts slowly, but gets faster each time you hear this sound. A single lap should be completed after you hear this sound. Remember to run ina straight line, and for as long as possible. The test will begin on the word start. On your mark, get ready, START!")
 while(1):
     try:
         start()
