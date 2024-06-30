@@ -1,5 +1,6 @@
 #Jarvis V2
 import os
+from playsound import playsound
 import speech_recognition as sr
 import random
 import detectwakeword #detectwakeword.py
@@ -25,8 +26,8 @@ def generate_response(intent):
 def say(text):
     if not server:
         os.system(f"echo '{text}' | \
-    piper --model en_US-lessac-medium.onnx --output-raw | \
-    aplay -r 22050 -f S16_LE -t raw -")
+    piper --model en_US-lessac-medium.onnx --output_file output.wav")
+        playsound('output.wav')
     else:
         print("Server Output")
         os.system(f"echo '{text}' | \
