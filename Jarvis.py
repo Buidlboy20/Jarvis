@@ -28,8 +28,10 @@ def say(text):
     piper --model en_US-lessac-medium.onnx --output-raw | \
     aplay -r 22050 -f S16_LE -t raw -")
     else:
+        print("Server Output")
         os.system(f"echo '{text}' | \
     piper --model en_US-lessac-medium.onnx --output_file output.wav")
+        
 global output
 def recognize_speech():
     recognizer = sr.Recognizer()
