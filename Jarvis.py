@@ -27,14 +27,14 @@ def generate_response(intent):
 def say(text):
     if not(config['Server'] == "True"):
         os.system(f"echo '{text}' | \
-    piper --model en_GB-northern_english-medium.onnx --output_file output.wav")
+    piper --model en_GB-northern_english_male-medium --output_file output.wav")
         pygame.mixer.music.load('output.wav')
         pygame.mixer.music.play()
         os.remove("output.wav")
     else:
         print("Server Output")
         os.system(f"echo '{text}' | \
-    piper --model en_GB-northern_english-medium --output_file output.wav")
+    piper --model een_GB-northern_english_male-medium --output_file output.wav")
         
 global output
 def recognize_speech():
