@@ -132,13 +132,12 @@ def handle_input(text):
         else:
             executecommand(intent)
 def start():
-    global output
-    output = detectwakeword.detect()
-    if output:
-        
-        handle_input(recognize_speech())
-    else:
-        output = ""
+    detect = detectwakeword.detect()
+    if detect:
+        recognize_speech()
+        if not output == None:
+            handle_input(output)
+
 
 while(1):
     try:
