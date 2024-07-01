@@ -82,6 +82,8 @@ def recognize_speech():
         print("Timeout")
         output = ""
         return None
+    except KeyboardInterrupt:
+        print("Canceled")
     except Exception as e:
         print("An error occured: " + e)
 def executecommand(intent):
