@@ -39,7 +39,6 @@ def detect():
     frame = capture_single_audio_frame()
     print("AudioFrameCaptured")
     audio_array = np.frombuffer(frame, dtype=np.int16)
-    time.sleep(0.05)
     print("Predicting")
     output = model.predict(audio_array)
     if output['hey_jarvis_v0.1.tflite'] >= 0.0005:  
