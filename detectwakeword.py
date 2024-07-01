@@ -44,6 +44,7 @@ def detect():
     output = model.predict(audio_array)
     if output['hey_jarvis_v0.1.tflite'] >= 0.0005:  
         print("WakeWord Detected")
+        model.reset()
         time.sleep(1)  
         return True
     else:
