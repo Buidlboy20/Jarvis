@@ -85,11 +85,11 @@ def recognize_speech():
     except Exception as e:
         print("An error occured: " + e)
 def executecommand(intent):
-    intent = intent['tag']
-    if intent['tag'] == 'time':
+    tag = intent['tag']
+    if tag == 'time':
         t = time.strftime("%I:%M %p")
         print(t)
-        say(f"the currert time is '{t}'")
+        say(f"The current time is '{t}'")
         print("Executing time command...")
 
 
