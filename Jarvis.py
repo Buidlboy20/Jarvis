@@ -47,7 +47,7 @@ def recognize_speech():
             with microphone as source:
                 print("Listening...")
                 recognizer.adjust_for_ambient_noise(source)
-                audio = recognizer.listen(source, timeout=6).get_wav_data()
+                audio = recognizer.listen(source, timeout=4).get_wav_data()
                 with wave.open('audio.wav', 'wb') as wav_file:
                     wav_file.setnchannels(1)
                     wav_file.setsampwidth(2)
