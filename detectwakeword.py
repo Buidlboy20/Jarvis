@@ -14,7 +14,6 @@ def capture_single_audio_frame():
 
     p = pyaudio.PyAudio()
 
-    # Open a stream
     stream = p.open(format=FORMAT,
                     channels=CHANNELS,
                     rate=RATE,
@@ -22,19 +21,18 @@ def capture_single_audio_frame():
                     frames_per_buffer=CHUNK)
 
     try:
-        # Read a single audio frame
+
         data = stream.read(CHUNK)
         return data
     finally:
-        # Clean up
+
         stream.stop_stream()
         stream.close()
         p.terminate()
 
-# One-time download of all pre-trained models (or only select models)
 download_models(["hey_jarvis_v0.1.tflite"])
 
-# Instantiate the wake word detection model
+
 model = Model(wakeword_models=["hey_jarvis_v0.1.tflite"])
 
 def detect():
@@ -46,10 +44,12 @@ def detect():
     output = model.predict(audio_array)
     if output['hey_jarvis_v0.1.tflite'] >= 0.0005:
         print("WakeWord Detected")
+        output = None
         return True
     else:
         print(output['hey_jarvis_v0.1.tflite'])
         print("No wakeword")
+        output = None
         return False
 def detectfromfile(file):
     with open(file, 'rb') as file:
