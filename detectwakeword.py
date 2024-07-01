@@ -42,15 +42,16 @@ def detect():
     time.sleep(0.05)
     print("Predicting")
     output = model.predict(audio_array)
-    if output['hey_jarvis_v0.1.tflite'] >= 0.0005:
+    if output['hey_jarvis_v0.1.tflite'] >= 0.005:  
         print("WakeWord Detected")
-        output = None
+        time.sleep(1)  
         return True
     else:
         print(output['hey_jarvis_v0.1.tflite'])
         print("No wakeword")
-        output = None
         return False
+
+
 def detectfromfile(file):
     with open(file, 'rb') as file:
         audio_array = np.frombuffer(file, dtype=np.int16)
